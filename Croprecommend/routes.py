@@ -10,7 +10,7 @@ with open(r"D:\NewCode\Allcombined\Croprecommend\RandomForest.pkl", "rb") as f:
     rf_model = pickle.load(f)
 
 # OpenWeather API Key
-API_KEY = "e457e64bcfa973c741603ce17bfa3975"
+API_KEY = "YOUR API KEY OF WEATHER "
 
 def get_weather(city):
     """Fetch weather data from OpenWeather API."""
