@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            text-align: left;
+            width: 400px;
+            margin-top: 50px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0277bd;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #0288d1;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0277bd;
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .radio-group input {
+            margin-left: 5px;
+        }
+
+        #cityInput, #manualWeather {
+            display: none;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0288d1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>🌱 Crop Recommendation System</h2>
+
+        <form method="post">
+            <label>Do you want to use Weather API?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="use_api" value="yes" checked onchange="toggleWeatherFields()"> Yes</label>
+                <label><input type="radio" name="use_api" value="no" onchange="toggleWeatherFields()"> No</label>
+            </div>
+
+            <div id="cityInput">
+                <label>City:</label>
+                <input type="text" name="city">
+            </div>
+
+            <label>N:</label>
+            <input type="text" name="N">
+
+            <label>P:</label>
+            <input type="text" name="P">
+
+            <label>K:</label>
+            <input type="text" name="K">
+
+            <label>pH:</label>
+            <input type="text" name="ph">
+
+            <div id="manualWeather">
+                <label>Temperature:</label>
+                <input type="text" name="temperature">
+
+                <label>Humidity:</label>
+                <input type="text" name="humidity">
+
+                <label>Rainfall:</label>
+                <input type="text" name="rainfall">
+            </div>
+
+            <br>
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction %}
+            <p class="result">Recommended Crop: {{ prediction }}</p>
+        {% endif %}
+    </div>
+
+    <script>
+        function toggleWeatherFields() {
+            const useApi = document.querySelector('input[name="use_api"]:checked').value;
+            if (useApi === "yes") {
+                document.getElementById('cityInput').style.display = 'block';
+                document.getElementById('manualWeather').style.display = 'none';
+            } else {
+                document.getElementById('cityInput').style.display = 'none';
+                document.getElementById('manualWeather').style.display = 'block';
+            }
+        }
+
+        // Ensure correct visibility on page load
+        window.onload = toggleWeatherFields;
+    </script>
+
+</body>
+</html>

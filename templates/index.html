@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f5e9;
+        }
+        .navbar {
+            background-color: #2d7b41;
+            padding: 15px;
+            text-align: center;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-size: 18px;
+        }
+        .navbar a:hover {
+            background-color: #1f5a2c;
+            border-radius: 5px;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .upload-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: center;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .custom-file-upload {
+            background-color: #dff0d8;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px;
+        }
+        .upload-button {
+            background-color: #2d7b41;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .upload-button:hover {
+            background-color: #1f5a2c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="{{ url_for('chatbot.index') }}">Chatbot</a>
+        <a href="{{ url_for('croprecommend.index') }}">Crop Recommendation</a>
+        <!-- <a href="{{ url_for('cropyield.index') }}">Crop Yield</a> -->
+        <a href="{{ url_for('plantdisease.index') }}">Plant Disease</a>
+    </div>
+
+    <!-- <div class="container">
+        <h1>Plant Disease Detection</h1>
+        <div class="upload-box">
+            <h3>Upload a plant leaf image</h3>
+            <label class="custom-file-upload">
+                <input type="file" id="fileInput">
+                Choose File
+            </label>
+            <br>
+            <button class="upload-button">Upload and Detect</button>
+        </div>
+    </div> -->
+
+</body>
+</html>
