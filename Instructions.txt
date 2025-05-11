@@ -1,0 +1,4 @@
+Copy the file on your system 
+Install all the dependencies from Reqirements.txt
+Flask run app.py on the vs code terminal or run the app.py 
+go to your browser and open http://127.0.0.1:5000/
